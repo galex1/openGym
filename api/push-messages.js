@@ -10,6 +10,14 @@ const COPY = {
     dayRoutineSuffix: 'today',
     dayBody: "It's on your plan. Let's go 💪",
   },
+  el: {
+    restTitle: 'Τέλος διαλείμματος 💪',
+    restBody: 'Ώρα για το επόμενο σετ.',
+    testBody: 'Δοκιμαστική ειδοποίηση ✅ Έτσι φαίνονται οι ειδοποιήσεις.',
+    dayFallbackTitle: 'Προπόνηση για σήμερα',
+    dayRoutineSuffix: 'σήμερα',
+    dayBody: 'Είναι στο πλάνο σου. Πάμε 💪',
+  },
   'pt-BR': {
     restTitle: 'Descanso terminado 💪',
     restBody: 'Hora da próxima série.',
