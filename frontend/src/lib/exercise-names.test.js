@@ -154,6 +154,24 @@ const LANGS = {
       [/ez[\s-]?bar/iu, /barra EZ/u],
     ],
   },
+  el: {
+    covers: EXDB,
+    loanword: true,
+    forbid: /(?:^|[^\p{L}])(?:barbell|dumbbell|cable|standing|seated|lying|kneeling|assisted|weighted)(?=$|[^\p{L}])/iu,
+    keep: [
+      // A partner's help is υποβοήθηση; helping yourself is αυτοβοήθεια.
+      [/assisted/iu, /υποβοηθ|αυτοβοήθ/iu],
+      [MALE, /άνδρ/iu],
+      [FEMALE, /γυναίκ/iu],
+      [/(?<!ez[\s-])(?<!olympic )barbell/iu, /μπάρα/iu],
+      [/dumbbell/iu, /αλτήρ/iu],
+      [/kettlebell/iu, /kettlebell/iu],
+      [/smith/iu, /smith/iu],
+      [/stability ball/iu, /pilates/iu],
+      [/medicine ball/iu, /medicine/iu],
+      [/ez[\s-]?bar/iu, /μπάρα ez/iu],
+    ],
+  },
   sv: {
     covers: EXDB,
     loanword: true,

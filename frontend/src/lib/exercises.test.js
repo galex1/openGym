@@ -157,6 +157,31 @@ describe('byCategory', () => {
   })
 })
 
+// Greek names: what a lifter in Athens types, with or without the accents, finds the exercise,
+// and the English title still works.
+describe('search with the Greek exercise-name pack', async () => {
+  const { EXDB } = await import('./exercises-data.js')
+  const { searchExercises } = await import('./exercises.js')
+  const el = (await import('../exercise-names/el.js')).default
+  const ids = (q) => searchExercises(EXDB, q).map(e => e.id)
+
+  it.each([
+    ['πιέσεις πάγκου μπάρα', '0025'],
+    ['πιεσεις παγκου', '0025'],
+    ['άρση θανάτου', '0032'],
+    ['αρση θανατου', '0032'],
+    ['άρσεις γαμπών', '0088'],
+  ])('"%s" finds the exercise', (query, id) => {
+    _setLangState('el', {}, null, el)
+    try {
+      expect(ids(query)).toContain(id)
+      expect(ids('bench press')).toContain('0025')
+    } finally {
+      _setLangState('en', null, null, null)
+    }
+  })
+})
+
 // European Portuguese and Swedish names (v1.4.4): what a lifter in Lisbon or Gothenburg types
 // finds the exercise on screen, with or without the accents, and the English still works.
 describe('search with the pt and sv exercise-name packs', async () => {
